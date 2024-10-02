@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model IEnumerable<FoodHubApp.Models.Product>
+<h2 class="text-center mb-4 text-dark">Welcome to Food Hub</h2>
+@* Banner *@
+<div class="container-fluid m-0 p-0">
+    <img src="~/images/food-banner.jpg" style="width:100%; height:600px" />
+</div>
+<div class="container my-5">
+
+@*    Featured Products List *@
+    <h3 class="text-center mb-4 bg-dark text-white p-2">Featured Products</h3>
+    <div class="row">
+       
+
+            @foreach (var product in Model)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-lg border-light">
+                        <div class="card-body">
+                            <h5 class="card-title text-dark">@product.Name</h5>
+                            <p class="card-text">@product.Description</p>
+                            <p class="card-text"><strong class="text-success">@product.Price.ToString("C")</strong></p>
+
+                            <a asp-action="CreateOrder" asp-controller="Orders" asp-route-productId="@product.Id" class="btn btn-dark">Order Now</a>
+                        </div>
+                    </div>
+                </div>
+           }
+        
+    </div>
+    @* Link to All Products List *@
+   <div class="d-flex justify-content-center">
+        <a href="@Url.Action( "Products")" class="btn btn-dark">View More</a>
+   </div> 
+
+</div>

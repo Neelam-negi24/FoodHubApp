@@ -1,0 +1,39 @@
+﻿@model IEnumerable<FoodHubApp.Models.Order>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Order Date </th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total Amount</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ProductName</td>
+                <td>@item.OrderDate.ToString("yyyy-MM-dd")</td>
+                <td>@item.Price?.ToString("C")</td>
+                <td>@item.Quantity</td>
+                <td>@((item.Quantity * item.Price)?.ToString("C"))</td>
+                <td>
+               
+                        <button type="submit" class="btn btn-danger">Delete</button>
+               
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>

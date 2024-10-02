@@ -1,0 +1,36 @@
+﻿@model FoodHubApp.Models.LoginViewModel
+<div class="row">
+    <div class="col"></div>
+<div class="col  ">
+        <div class="card">
+
+    <div class="card-header">
+            <h2 class="d-flex justify-content-center">Login</h2>
+        </div>
+
+        <form asp-action="Login" method="post" class="p-3">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Password"></label>
+        <input asp-for="Password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <div class="form-check">
+            <input asp-for="RememberMe" class="form-check-input" />
+            <label asp-for="RememberMe" class="form-check-label"></label>
+        </div>
+    </div>
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+</form>
+        </div>
+</div>
+<div class="col"></div>
+</div>

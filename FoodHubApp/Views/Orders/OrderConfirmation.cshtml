@@ -1,0 +1,27 @@
+﻿@model FoodHubApp.Models.Order
+
+<div class="row">
+    <div class="col"></div>
+    <div class="col">
+        <div class="card">
+            <div class="card-header">
+                <h2>Order Confirmation</h2>
+            </div>
+            <div class="card-body">
+                <p>Thank you for your order! Here are the details:</p>
+
+                <p><strong>Product:</strong> @Model.ProductName</p>
+                <p><strong>Quantity:</strong> @Model.Quantity</p>
+                <p><strong>Price:</strong> @Model.Price?.ToString("C")</p>
+                <p><strong>Total Amount:</strong> @Model.TotalAmount?.ToString("C")</p>
+
+                <h3>Payment Information</h3>
+                <p><strong>Payment Method:</strong> @Model.Payment?.PaymentMethod</p>
+                <p><strong>Card Holder Name:</strong> @Model.Payment?.CardHolderName</p>
+            @*     <p><strong>Card Number:</strong> @Model.Payment?.CardNumber</p> *@
+                <p><strong>Payment Date:</strong> @Model.Payment?.PaymentDate.ToString("f")</p>
+            </div>
+        </div>
+    </div>
+    <div class="col"></div>
+</div>
